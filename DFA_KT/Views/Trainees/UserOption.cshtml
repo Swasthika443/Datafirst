@@ -1,0 +1,22 @@
+﻿@model DFA_KT.Models.Trainee
+
+
+@{
+    ViewData["Title"] = "UserOption";
+}
+
+<div class="containers">
+
+    <h1>Choose</h1>
+    <tr>
+    <td><a asp-action="Edit" asp-route-id="@Model?.Tid" class="text-warning btn btn-primary" colspan="2">Edit</a></td>
+       
+        <td>
+        <a asp-action="Delete" asp-route-id="@Model?.Tid" class="text-danger btn btn-primary" colspan="2"> Delete</a>
+        </td>
+    <a asp-action="Index">Back to List</a>
+    </tr>
+</div>
+
+
+

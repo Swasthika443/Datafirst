@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DFA_KT.Models.Trainee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tid)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortorder="@ViewData["NameOrder"]">Name</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortorder="@ViewData["ageOrder"]">Age</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    <a asp-action="UserOption" asp-route-id="@item.Tid" style="text-decoration: none;color:white" class="delete-link"> @Html.DisplayFor(modelItem => item.Tid) </a>
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tage)
+            </td>
+            <td>
+                 <a asp-action="Edit" asp-route-id="@item.Tid" class="text-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+|
+                    <a asp-action="Details" asp-route-id="@item.Tid" class="text-info"><i class="fa-sharp fa-solid fa-circle-info"></i></a>
+ |
+                    <a asp-action="Delete" asp-route-id="@item.Tid" class="text-danger"> <i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+
+            
+            }
+       
+    </tbody>
+</table>
